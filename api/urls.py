@@ -6,12 +6,14 @@ question_list = QuestionView.as_view({
     'post': 'create',
     'get': 'list'
 })
+
 question_detail = QuestionView.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
     'delete': 'destroy'
 })
+
 urlpatterns = format_suffix_patterns([
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('question/', question_list, name='question_list'),
